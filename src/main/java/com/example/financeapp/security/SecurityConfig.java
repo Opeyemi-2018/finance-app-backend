@@ -71,7 +71,9 @@ public class SecurityConfig {
         config.setAllowedOrigins(List.of(
                 "http://localhost:3000",
                 "http://localhost:3001",
-                "http://localhost:5173"
+                "http://localhost:5173",
+                "https://financeapp-backend-7cfk.onrender.com"
+
         ));
 
         config.setAllowedMethods(List.of("GET", "POST", "PUT",  "DELETE", "OPTIONS"));
