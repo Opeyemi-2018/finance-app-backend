@@ -1,0 +1,29 @@
+version: "3.9"  # Defines the Docker Compose version being used
+
+services:  # Starts defining all containers (services) for this project
+
+  postgres:  # Name of the PostgreSQL service (container)
+
+    image: postgres:17  # Pulls PostgreSQL version 17 from Docker Hub
+
+    container_name: finance-postgres  # Gives the container a fixed readable name
+
+    environment:  # Sets environment variables for PostgreSQL setup
+
+      POSTGRES_DB: finance_db  # Automatically creates a database called finance_db
+
+      POSTGRES_USER: postgres  # Sets the database username to postgres
+
+      POSTGRES_PASSWORD: password  # Sets the password for the postgres user
+
+    ports:  # Maps container ports to your local machine
+
+      - "5432:5432"  # Exposes PostgreSQL on localhost:5432
+
+    volumes:  # Stores database data permanently
+
+      - postgres_data:/var/lib/postgresql/data  # Keeps data even if container is removed
+
+volumes:  # Defines named volumes used above
+
+  postgres_data:  # Creates a persistent storage area for PostgreSQL data
